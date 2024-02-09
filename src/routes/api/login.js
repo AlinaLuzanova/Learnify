@@ -4,8 +4,8 @@ const bcrypt = require("bcrypt");
 loginApiRouter.route('/login')
 .post(async(req,res)=>{
     try{
-        const {login,password} = req.body;
-        if(!login || !password){
+        const {login,email,password} = req.body;
+        if(!login || !email || !password ){
             return res.status(400).json({message:'Need all fileds'})
         }
         const user = await User.findOne({where:{login}});

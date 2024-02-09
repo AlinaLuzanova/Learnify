@@ -6,9 +6,15 @@ module.exports = function Login({title}){
         <Layout title={title}>
             <form name="loginForm" action='/api/auth/login'>
                 <div className="row mb-3">
+                    <label htmlFor="inputEmail4" className="col-sm-2 col-form-label">Login</label>
+                    <div className="col-sm-10">
+                        <input type="text" className="form-control" id="inputEmail4" name = 'login'/>
+                    </div>
+                </div>
+                <div className="row mb-3">
                     <label htmlFor="inputEmail4" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input type="email" className="form-control" id="inputEmail4" name = 'login'/>
+                        <input type="email" className="form-control" id="inputEmail4" name = 'email'/>
                     </div>
                 </div>
                 <div className="row mb-3">

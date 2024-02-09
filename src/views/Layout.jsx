@@ -9,12 +9,11 @@ function Layout({ title = "Home Page", children, user }) {
             <script defer src="/js/auth.js"></script>
             <link rel="stylesheet" href="/styles/style.css" />
             <link rel="stylesheet" href="/styles/bootstrap.min.css"/>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
         </head>
         <body>
         <Header user={user} />
-        {user && (
-            <div className="headerEmail">{`You logged in by: ${user.login}`}</div>
-        )}
         {children}
         <div className="modal" tabIndex="-1" id="myModal">
             <div className="modal-dialog">

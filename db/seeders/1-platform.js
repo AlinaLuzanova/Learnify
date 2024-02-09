@@ -26,7 +26,7 @@ module.exports = {
         website: 'https://www.stepik.org',
         rating: null,
         image: 'https://telegra.ph/file/423058a076f4aad014440.jpg',
-        description: 'Delivers interactive courses covering a wide range of topics.',
+        description: 'Delivers interactive courses covering a wide range of different  topics.',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -52,7 +52,7 @@ module.exports = {
         name: 'Лекториум',
         website: 'https://www.lektorium.tv',
         rating: null,
-        image: 'https://expertology.ru/upload/medialibrary/e7f/Lektorium.jpg',
+        image: 'https://yt3.googleusercontent.com/ytc/APkrFKYyfQYGqFz8hMFc15VrfhKLXULvDLIeo5vTVXlIlQ=s900-c-k-c0x00ffffff-no-rj',
         description: 'Provides a diverse range of educational content, from lectures to documentaries.',
         createdAt: new Date(),
         updatedAt: new Date()

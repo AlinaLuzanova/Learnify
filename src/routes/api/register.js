@@ -4,9 +4,9 @@ const bcrypt = require("bcrypt");
 
 registerApiRouter.route('/register')
 .post(async(req,res)=>{
-    const {login, password, password2}= req.body;
+    const {login, email, password, password2}= req.body;
     try{
-        if(!login||!password||!password2){
+        if(!login||!password||!password2 || !email){
             return res.status(401).json({message:'Need all fields'})
         }
         if(password!==password2 || password.length<8){
@@ -18,7 +18,7 @@ registerApiRouter.route('/register')
         }
         if(!user){
             const hashedPassword = await bcrypt.hash(password, 10);
-            const hashedUser = await User.create({login,password:hashedPassword})
+            const hashedUser = await User.create({login,email,password:hashedPassword})
             req.session.userId = hashedUser.id;
             return res.status(200).json({message:'OK'})
         }

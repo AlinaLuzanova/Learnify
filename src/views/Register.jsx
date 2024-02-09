@@ -6,9 +6,15 @@ module.exports = function Register({title}){
         <Layout title={title}>
             <form name="registerForm" action='/api/auth/register'>
                 <div className="row mb-3">
+                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Login</label>
+                    <div className="col-sm-10">
+                        <input type="text" className="form-control" id="inputEmail3" name='login' required/>
+                    </div>
+                </div>
+                <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input type="email" className="form-control" id="inputEmail3" name='login' required/>
+                        <input type="email" className="form-control" id="inputEmail3" name='email' required/>
                     </div>
                 </div>
                 <div className="row mb-3">

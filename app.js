@@ -24,9 +24,11 @@ app.use('/api/modify',createNewApiRouter,deleteApiRouter,editApiRouter)
 const homeViewRouter = require('./src/routes/view/home');
 const loginViewRouter = require('./src/routes/view/login');
 const registerViewRouter = require('./src/routes/view/register');
+const categoriesViewRouter = require('./src/routes/view/categories')
 //view routes usage
 app.use('/', homeViewRouter);
-app.use('/auth', loginViewRouter, registerViewRouter)
+app.use('/auth', loginViewRouter, registerViewRouter);
+app.use('/categories', categoriesViewRouter)
 
 
 app.get("*", (req, res) => {

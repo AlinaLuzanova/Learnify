@@ -4,7 +4,7 @@ module.exports = function Header({user}){
         <div className='Header'>
             <nav className="navbar" >
                 <div className="container-fluid">
-                    <h2>Learnify</h2>
+                    <h2><a href='/'>Learnify</a></h2>
                     <a className="navbar-brand" href='/categories'>All categories</a>
                     {user ? (
                         <>
