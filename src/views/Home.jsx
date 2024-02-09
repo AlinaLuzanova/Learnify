@@ -1,16 +1,19 @@
 const React = require('react');
-const Layout = require('./Layout')
+const Layout = require('./Layout');
+const PlatformCard = require('./components/PlatformCard');
 
-module.exports = function Home({title, user, params}){
-    return(
+module.exports = function Home({ title, user, platforms }) {
+    return (
         <Layout title={title} user={user}>
-            {params && (
-                <ul>
-                    {params.map((param)=>{
-                        <li key={param.id}>{param.title}</li>
-                    })}
+            {platforms && (
+                <ul className='PlatformList'>
+                    {platforms.map((platform) => (
+                        <li key={platform.id}>
+                            <PlatformCard Platform={platform} />
+                        </li>
+                    ))}
                 </ul>
             )}
         </Layout>
-    )
-}
+    );
+};

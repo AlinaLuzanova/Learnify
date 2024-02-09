@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
   Platform.init({
     name: DataTypes.STRING,
     website: DataTypes.STRING,
-    rating: DataTypes.FLOAT
+    rating: DataTypes.FLOAT,
+    image: DataTypes.STRING,
+    description: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Platform',
