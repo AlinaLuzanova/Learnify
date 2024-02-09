@@ -1,0 +1,10 @@
+body {
+    padding: 1% 10%;
+}
+
+#myModal{
+    display:none;
+}
+.Header{
+    margin-bottom: 3%;
+}
