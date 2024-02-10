@@ -237,3 +237,13 @@ h1{
 .footer a:hover {
     text-decoration: underline;
 }
+#ratingForm{
+    display: flex;
+    width:20vw;
+    justify-content: space-between;
+    height: 2em;
+}
+#ratingForm>*{
+    width: 100%;
+    height: inherit;
+}

@@ -13,7 +13,7 @@ serverConfig(app);
 const loginApiRouter = require('./src/routes/api/login');
 const registerApiRouter = require('./src/routes/api/register');
 const logoutApiRouter = require('./src/routes/api/logout');
-const createNewApiRouter = require('./src/routes/api/createNew');
+const createNewApiRouter = require('./src/routes/api/addRating');
 const deleteApiRouter = require('./src/routes/api/delete');
 const editApiRouter = require('./src/routes/api/edit');
 //api routes usage

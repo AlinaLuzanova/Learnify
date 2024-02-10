@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Favourite}) {
+    static associate({Favourite, Course}) {
       // define association here
       User.belongsToMany(Favourite, {through: 'Favourite', foreignKey:'user_id'})
+      User.belongsToMany(Course,{through:'Rating', foreignKey:'user_id'} )
     }
   }
   User.init({

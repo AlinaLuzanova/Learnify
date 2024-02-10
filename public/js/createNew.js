@@ -1,10 +1,11 @@
-const newForm = document.forms["newForm"];
-
+const newForm = document.forms["ratingForm"];
+const myModal = document.getElementById('myModal');
+const myInput = document.getElementById('myInput');
 newForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
     try {
         const formData = Object.fromEntries(new FormData(newForm));
-        const response = await fetch("/api/subscriptions/new", {
+        const response = await fetch(newForm.dataset.url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
@@ -13,16 +14,20 @@ newForm?.addEventListener("submit", async (e) => {
 
         switch (response.status) {
             case 200:
-                //some logic
+                myInput.textContent = data.message;
+                myModal.style.display = 'block';
                 break;
             case 400:
-                //some logic
+                myInput.textContent = data.message;
+                myModal.style.display = 'block';
                 break;
             case 401:
-                //some logic
+                myInput.textContent = data.message;
+                myModal.style.display = 'block';
                 break;
             case 500:
-                //some logic
+                myInput.textContent = data.message;
+                myModal.style.display = 'block';
                 break;
             default:
                 console.log("Unexpected Error");

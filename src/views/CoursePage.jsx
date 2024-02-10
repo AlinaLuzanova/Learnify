@@ -42,6 +42,26 @@ module.exports = function CoursePage({title, user, course, category, subcategory
                      aria-valuemin="0" aria-valuemax="100">
                     <div className="progress-bar bg-danger" style={{ width: `${course.rating}%` }}></div>
                 </div>
+                {user ? (
+                    <div className="container mt-5">
+                        <h4>Rate on a 100-point scale:</h4>
+                        <form id='ratingForm' name='ratingForm' method='POST' data-url={`/api/categories/${category.id}/${subcategory.id}/${course.id}`} action={`/api/categories/${category.id}/${subcategory.id}/${course.id}`}>
+                            <div className="mb-3">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    min="0"
+                                    max="100"
+                                />
+                            </div>
+                            <div>
+                            <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
+                        </form>
+                    </div>
+                ):(
+                    <h3>Login or sign up to rate and write comments</h3>
+                )}
             </div>
         </Layout>
     )
