@@ -27,10 +27,14 @@ const registerViewRouter = require('./src/routes/view/register');
 const categoriesViewRouter = require('./src/routes/view/categories')
 const categoryPageViewRouter = require('./src/routes/view/categoryPage')
 const subcategoryPageViewRouter = require('./src/routes/view/subcategoryPage')
+const coursePageViewRouter = require('./src/routes/view/coursePage')
+const platformViewRouter = require('./src/routes/view/platforms');
+const platformPageViewRouter = require('./src/routes/view/platformPage')
 //view routes usage
 app.use('/', homeViewRouter);
 app.use('/auth', loginViewRouter, registerViewRouter);
-app.use('/categories', categoriesViewRouter,categoryPageViewRouter,subcategoryPageViewRouter)
+app.use('/platforms', platformViewRouter,platformPageViewRouter)
+app.use('/categories', categoriesViewRouter,categoryPageViewRouter,subcategoryPageViewRouter,coursePageViewRouter)
 
 
 app.get("*", (req, res) => {

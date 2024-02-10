@@ -2,9 +2,9 @@ const React = require('react');
 module.exports = function PlatformCard({Platform}){
     return(
         <div className='PlatformCard'>
-            <div className="card" style={{ borderRadius: '2.25rem',borderWidth: '2px' }}>
+            <div className="card" style={{ borderRadius: '.25rem',borderWidth: '2px' }}>
                  <div className='imgContainer'>
-                <img src={Platform.image} className="card-img-top" alt="..." style={{ borderRadius: '2.25rem' }}/>
+                <img src={Platform.image} className="card-img-top" alt="..." style={{ borderRadius: '.25rem' }}/>
                  </div>
                      <div className="card-body" id="platformCardBody">
 

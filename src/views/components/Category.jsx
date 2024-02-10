@@ -13,7 +13,7 @@ module.exports = function Category({category, subcategories}){
             <ul className="dropdown-menu">
                 {subcategories.map((subcategory)=>(
                     <li key={subcategory.id}>
-                        <a href='#' className="dropdown-item">
+                        <a href={`/categories/${category.id}/${subcategory.id}`} className="dropdown-item">
                             {subcategory.name}
                             <hr/>
                         </a>

@@ -16,8 +16,6 @@ subcategoryPageViewRouter.route('/:catId/:subcatId')
                 const neddedPlatforms = await Platform.findAll({ where: { id: course.platform_id }, raw:true });
                 platformsCourse.push(...neddedPlatforms);
             }
-            console.log('category', category, 'subcategory',subcategory, 'courses', courses, 'platformsCourse',platformsCourse)
-
 
             res.send(res.renderComponent(SubcategoryPage,{ title: category.name, user: res.locals.user, category, subcategory, courses, platforms:platformsCourse }));
         } catch (error) {

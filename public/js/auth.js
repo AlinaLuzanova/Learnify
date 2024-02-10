@@ -22,7 +22,7 @@ registerForm?.addEventListener('submit', async (event) => {
                 myModal.style.display = 'block';
             }
         } else {
-            // Обработка ошибок сервера
+
             const errorData = await response.json();
             myInput.textContent = errorData.message || 'Ошибка при регистрации';
             myModal.style.display = 'block';

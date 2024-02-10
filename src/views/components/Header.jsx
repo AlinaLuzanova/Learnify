@@ -2,10 +2,13 @@ const React = require('react');
 module.exports = function Header({user}){
     return(
         <div className='Header'>
+            <hr className="border border-Secondary border-3 opacity-50"/>
             <nav className="navbar" >
                 <div className="container-fluid">
+
                     <h2><a href='/'>Learnify</a></h2>
                     <a className="navbar-brand" href='/categories'>All categories</a>
+                    <a className="navbar-brand" href='/platforms'>Platforms</a>
                     {user ? (
                         <>
                         <a href='/api/auth/logout'>Logout</a>

@@ -1,5 +1,6 @@
 const React = require("react");
 const Header = require("./components/Header");
+const Footer = require('./components/Footer')
 function Layout({ title = "Home Page", children, user }) {
     return (
         <html lang="en">
@@ -9,12 +10,16 @@ function Layout({ title = "Home Page", children, user }) {
             <script defer src="/js/auth.js"></script>
             <link rel="stylesheet" href="/styles/style.css" />
             <link rel="stylesheet" href="/styles/bootstrap.min.css"/>
+            <link rel="stylesheet" href="/styles/font-awesome.min.css"/>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
         </head>
         <body>
         <Header user={user} />
+        <div className='main-content'>
         {children}
+        </div>
+        <Footer/>
         <div className="modal" tabIndex="-1" id="myModal">
             <div className="modal-dialog">
                 <div className="modal-content">

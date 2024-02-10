@@ -16,7 +16,7 @@ module.exports = function CourseCard({category, subcategory, color, course, plat
                          aria-valuemin="0" aria-valuemax="100">
                         <div className="progress-bar bg-danger" style={{ width: `${course.rating}%` }}></div>
                     </div>
-                    <a href={`/categories/${category.id}/${course.name}`} className="btn btn-primary">Show more</a>
+                    <a href={`/categories/${category.id}/${subcategory.id}/${course.id}`} className="btn btn-primary">Show more</a>
                 </div>
                     <h5><span style={{ color: '#28a745' }}>{course.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} RUB</span>  |  {course.duration} days</h5>
                 </div>
