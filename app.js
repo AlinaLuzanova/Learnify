@@ -26,10 +26,11 @@ const loginViewRouter = require('./src/routes/view/login');
 const registerViewRouter = require('./src/routes/view/register');
 const categoriesViewRouter = require('./src/routes/view/categories')
 const categoryPageViewRouter = require('./src/routes/view/categoryPage')
+const subcategoryPageViewRouter = require('./src/routes/view/subcategoryPage')
 //view routes usage
 app.use('/', homeViewRouter);
 app.use('/auth', loginViewRouter, registerViewRouter);
-app.use('/categories', categoriesViewRouter,categoryPageViewRouter)
+app.use('/categories', categoriesViewRouter,categoryPageViewRouter,subcategoryPageViewRouter)
 
 
 app.get("*", (req, res) => {

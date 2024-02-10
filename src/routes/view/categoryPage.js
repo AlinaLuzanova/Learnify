@@ -21,9 +21,6 @@ categoryPageViewRouter.route('/:id')
                 platformsCourse.push(...neddedPlatforms);
             }
 
-            console.log(platformsCourse)
-
-
 
             const colors = ['#007bff','#28a745','#dc3545','#ffc107','#17a2b8','#343a40','#ff69b4'];
 

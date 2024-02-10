@@ -6,7 +6,7 @@ module.exports = function PlatformCard({Platform}){
                  <div className='imgContainer'>
                 <img src={Platform.image} className="card-img-top" alt="..." style={{ borderRadius: '2.25rem' }}/>
                  </div>
-                     <div className="card-body">
+                     <div className="card-body" id="platformCardBody">
 
                         <a href={`/platforms/${Platform.id}`}><h5 className="card-title">{Platform.name}</h5></a>
                         <p className="card-text">{Platform.description}</p>

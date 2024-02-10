@@ -11,11 +11,13 @@ module.exports = function CourseCard({category, subcategory, color, course, plat
                     <p className="card-text">{course.description.split('.')[0]}</p>
                     <h6>{subcategory.name}</h6>
                     <h5></h5>
+                    <div className='progressContainer'>
                     <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100"
                          aria-valuemin="0" aria-valuemax="100">
                         <div className="progress-bar bg-danger" style={{ width: `${course.rating}%` }}></div>
                     </div>
                     <a href={`/categories/${category.id}/${course.name}`} className="btn btn-primary">Show more</a>
+                </div>
                     <h5><span style={{ color: '#28a745' }}>{course.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} RUB</span>  |  {course.duration} days</h5>
                 </div>
             </div>
