@@ -247,3 +247,12 @@ h1{
     width: 100%;
     height: inherit;
 }
+#comment{
+    width: 90%;
+    height: fit-content;
+    padding: 3%;
+}
+#card-body{
+    height: fit-content;
+}
+

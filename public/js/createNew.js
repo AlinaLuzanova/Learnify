@@ -14,9 +14,20 @@ newForm?.addEventListener("submit", async (e) => {
 
         switch (response.status) {
             case 200:
-                myInput.textContent = data.message;
-                myModal.style.display = 'block';
-                break;
+                const card = document.createElement('li');
+                card.classList.add('comment');
+                card.innerHTML = `
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">${data.login}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Rating: <span>${formData.numberInput}</span></h6>
+        <p class="card-text">${formData.commentInput}</p>
+      </div>
+    </div>
+  `;
+                const commentsContainer = document.querySelector('.commentsContainer');
+                commentsContainer.appendChild(card);
+                return card;
             case 400:
                 myInput.textContent = data.message;
                 myModal.style.display = 'block';

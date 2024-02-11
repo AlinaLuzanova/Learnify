@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
-
-module.exports = function CoursePage({title, user, course, category, subcategory, platform}) {
+const Comment = require('./components/Comment');
+module.exports = function CoursePage({title, user, course, category, subcategory, platform, comments}) {
     return (
         <Layout title={title} user={user}>
             <div className='headerLink'>
@@ -43,25 +43,35 @@ module.exports = function CoursePage({title, user, course, category, subcategory
                     <div className="progress-bar bg-danger" style={{ width: `${course.rating}%` }}></div>
                 </div>
                 {user ? (
-                    <div className="container mt-5">
-                        <h4>Rate on a 100-point scale:</h4>
-                        <form id='ratingForm' name='ratingForm' method='POST' data-url={`/api/categories/${category.id}/${subcategory.id}/${course.id}`} action={`/api/categories/${category.id}/${subcategory.id}/${course.id}`}>
-                            <div className="mb-3">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    min="0"
-                                    max="100"
-                                />
-                            </div>
-                            <div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                    <div className="rating-form">
+                    <h4>Share your experience</h4>
+                    <form name={'ratingForm'} method="post" action={`/api/modify/comment/${course.id}`} data-url={`/api/modify/comment/${course.id}`}>
+                        <div className="form-group">
+                            <input type="number" className="form-control" name='numberInput' id="numberInput" min="1" max="100" placeholder="Add rate from 1 to 100"/>
+                        </div>
+
+                        <div className="form-group">
+                            <textarea className="form-control" name='commentInput' id="commentInput" rows="3"
+                                      placeholder="Add comment here"></textarea>
+                        </div>
+
+                        <button type="submit" className="btn btn-primary">Отправить</button>
+                    </form>
                     </div>
-                        </form>
-                    </div>
-                ):(
+                    ):(
                     <h3>Login or sign up to rate and write comments</h3>
                 )}
+                <div className="commentsContainer">
+                    <h3>Comments and rates</h3>
+                    <ul>
+                        {comments.map(comment => (
+                            <li key={comment.id}>
+                                <Comment comment={comment.comment} user={user} rate={comment.rate} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
             </div>
         </Layout>
     )
