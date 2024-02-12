@@ -10,7 +10,8 @@ module.exports = function CourseCard({category, subcategory, color, course, plat
                     <h6>On <a href={`/platforms/${platform.id}`}>{platform.name}</a></h6>
                     <p className="card-text">{course.description.split('.')[0]}</p>
                     <h6>{subcategory.name}</h6>
-                    <h5></h5>
+                    <h6 style={{color:'#007bff'}}>Rating:</h6>
+                    {course.rating ? (<h5>{course.rating} / 100</h5>) : (<h5>No rating yet</h5>)}
                     <div className='progressContainer'>
                     <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100"
                          aria-valuemin="0" aria-valuemax="100">

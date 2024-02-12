@@ -24,7 +24,7 @@ categoryPageViewRouter.route('/:id')
 
             const colors = ['#007bff','#28a745','#dc3545','#ffc107','#17a2b8','#343a40','#ff69b4'];
 
-            res.send(res.renderComponent(CategoryPage,{ title: category.name, user: res.locals.user, category, subcategories, courses, colors, platforms:platformsCourse }));
+            res.send(res.renderComponent(CategoryPage,{ title: category.name, user: res.locals.user, category, subcategories, courses:courses.sort((a, b) => b.rating - a.rating), colors, platforms:platformsCourse }));
         } catch (error) {
             res.status(500).send({ error: 'An error occurred while fetching data.' });
         }

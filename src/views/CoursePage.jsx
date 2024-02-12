@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 const Comment = require('./components/Comment');
-module.exports = function CoursePage({title, user, course, category, subcategory, platform, comments}) {
+module.exports = function CoursePage({title, user, course, category, subcategory, platform, comments, creators}) {
     return (
         <Layout title={title} user={user}>
             <div className='headerLink'>
@@ -37,7 +37,8 @@ module.exports = function CoursePage({title, user, course, category, subcategory
                     </tr>
                     </tbody>
                 </table>
-
+                <h4 style={{color:'#007bff'}}>Rating:</h4>
+                {course.rating ? (<h3>{course.rating} / 100</h3>) : (<h3>No rating yet</h3>)}
                 <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100"
                      aria-valuemin="0" aria-valuemax="100">
                     <div className="progress-bar bg-danger" style={{ width: `${course.rating}%` }}></div>
@@ -55,7 +56,7 @@ module.exports = function CoursePage({title, user, course, category, subcategory
                                       placeholder="Add comment here"></textarea>
                         </div>
 
-                        <button type="submit" className="btn btn-primary">Отправить</button>
+                        <button type="submit" className="btn btn-primary">Send</button>
                     </form>
                     </div>
                     ):(
@@ -64,11 +65,12 @@ module.exports = function CoursePage({title, user, course, category, subcategory
                 <div className="commentsContainer">
                     <h3>Comments and rates</h3>
                     <ul>
-                        {comments.map(comment => (
-                            <li key={comment.id}>
-                                <Comment comment={comment.comment} user={user} rate={comment.rate} />
-                            </li>
-                        ))}
+                        {comments.map(comment => {
+                            const creator = creators.find(creator => creator.id === comment.user_id);
+                            return (<li key={comment.id}>
+                                <Comment comment={comment.comment} user={creator} rate={comment.rate}/>
+                            </li>)
+                        })}
                     </ul>
                 </div>
 

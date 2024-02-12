@@ -109,7 +109,8 @@ h1{
 }
 
 .card-body{
-    height: 50vh;
+    height: 60vh;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -255,4 +256,22 @@ h1{
 #card-body{
     height: fit-content;
 }
+.card{
+    height: fit-content;
+}
+.comment{
 
+    margin: 3% 0;
+}
+.commentsContainer ul li{
+    list-style-type: none;
+}
+#ratingForm>button{
+
+}
+.commentsContainer{
+    margin-top: 3%;
+}
+.pic{
+    width:inherit
+}

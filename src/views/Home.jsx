@@ -15,7 +15,7 @@ module.exports = function Home({ title, user }) {
             <div className="row">
                 <div className="col-md-6">
                     <div className="card mb-4">
-                        <div className="card-body">
+                        <div className="card-body pic">
                             <h5 className="card-title">Popular Courses</h5>
                             <img src='https://i.ytimg.com/vi/njqec0G_Wdc/maxresdefault.jpg' className="card-img-top" alt="Popular Courses Image" style={{height: 'auto', width: '100%'}} />
                             <p className="card-text">Discover trending courses that everyone is talking about.</p>
@@ -24,7 +24,7 @@ module.exports = function Home({ title, user }) {
                 </div>
                 <div className="col-md-6">
                     <div className="card mb-4">
-                        <div className="card-body">
+                        <div className="card-body pic">
                             <h5 className="card-title">New Arrivals</h5>
                             <img src='https://img2.cgtrader.com/items/2110176/5b5d118466/medicine-pill-9-3d-model-obj-mtl-blend-dae-abc.jpg'  className="card-img-top" alt="Popular Courses Image" style={{height: 'auto', width: 'inherit'}} />
                             <p className="card-text">Check out the latest courses added to our platform.</p>

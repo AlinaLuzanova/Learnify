@@ -1,6 +1,7 @@
 const newForm = document.forms["ratingForm"];
-const myModal = document.getElementById('myModal');
-const myInput = document.getElementById('myInput');
+//const myModal = document.getElementById('myModal');
+//const myInput = document.getElementById('myInput');
+console.log('---------')
 newForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
     try {
@@ -11,38 +12,34 @@ newForm?.addEventListener("submit", async (e) => {
             body: JSON.stringify(formData),
         });
         const data = await response.json();
-
-        switch (response.status) {
-            case 200:
-                const card = document.createElement('li');
-                card.classList.add('comment');
-                card.innerHTML = `
+        console.log('---------')
+        if (data.text === 'OK') {
+            console.log('---------')
+            const card = document.createElement('li');
+            card.innerHTML = `
+<div class="comment">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body" id="card-body">
         <h5 class="card-title">${data.login}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">Rating: <span>${formData.numberInput}</span></h6>
         <p class="card-text">${formData.commentInput}</p>
       </div>
     </div>
+    </div>
   `;
-                const commentsContainer = document.querySelector('.commentsContainer');
-                commentsContainer.appendChild(card);
-                return card;
-            case 400:
-                myInput.textContent = data.message;
-                myModal.style.display = 'block';
-                break;
-            case 401:
-                myInput.textContent = data.message;
-                myModal.style.display = 'block';
-                break;
-            case 500:
-                myInput.textContent = data.message;
-                myModal.style.display = 'block';
-                break;
-            default:
-                console.log("Unexpected Error");
+            const commentsContainer = document.querySelector('.commentsContainer');
+            commentsContainer.firstElementChild.nextElementSibling.prepend(card);
         }
+
+            if (data.text ==='You can\'t add comments') {
+                myInput.textContent = data.message;
+                myModal.style.display = 'block';
+            }
+            else{
+
+            }
+
+
     } catch (err) {
         console.log(err.message);
     }

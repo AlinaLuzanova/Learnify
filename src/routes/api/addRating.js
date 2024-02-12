@@ -1,5 +1,5 @@
 const addRating = require("express").Router();
-const { Course, Category, Rating } = require("../../../db/models");
+const { Course, Category, Rating, User } = require("../../../db/models");
 
 
 addRating.route("/comment/:courseId").post(async (req, res) => {
@@ -29,14 +29,15 @@ addRating.route("/comment/:courseId").post(async (req, res) => {
             const courseRateAvg = courseRateSum / amoutOfComments;
             await isExist.update({ rating: parseFloat(courseRateAvg.toFixed(2)) });
 
+            const creator = await User.findByPk(rating.user_id);
 
-            res.status(200).json({ text: "OK", login: user.login, ratingId: rating.id });
+            res.status(200).json({ text: "OK", login: creator.login, ratingId: rating.id });
         } else {
             res.status(400).json({ text: "You can't add comments" });
         }
     } catch (err) {
         console.error(err.message);
-        res.sendStatus(500);
+        res.status(500).json({text:err});
     }
 });
 
