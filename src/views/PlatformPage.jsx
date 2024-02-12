@@ -9,16 +9,17 @@ module.exports = function PlatformPage({ title, user, platform, courses, categor
                 <div className="col-md-4">
                     <img src={platform.image} className="img-fluid rounded" alt={platform.name} />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-8 platformDescription">
                     <h1>{platform.name}</h1>
-                    <p>{platform.description}</p>
-                    <p>Rating: {platform.rating}</p>
-                    <p>Website: <a href={platform.website}>{platform.website}</a></p>
+                    <h3 className="course-description">{platform.description}</h3>
+                    <h4 style={{color:'#007bff'}}>Rating:</h4>
+                    {platform.rating ? (<h3>{platform.rating} / 100</h3>) : (<h3>No rating yet</h3>)}
+                    <h5>Website: <a href={platform.website}>{platform.website}</a></h5>
                 </div>
             </div>
             <div className="row mt-5">
                 <div className="col-md-12">
-                    <h2>Courses Offered</h2>
+                    <h2 className='h2PlatformPage'>Courses Offered</h2>
                     <div className='courseList'>
                         <ul>
                             {courses.map((course)=> {

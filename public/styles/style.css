@@ -275,3 +275,9 @@ h1{
 .pic{
     width:inherit
 }
+.platformDescription>*{
+    margin-bottom: 3%;
+}
+.h2PlatformPage{
+    margin-bottom: 3%;
+}
