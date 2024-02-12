@@ -28,7 +28,7 @@ module.exports = function PlatformPage({ title, user, platform, courses, categor
                                 const color = colors[subcategories.indexOf(subcat) % colors.length];
                                 return (
                                     <li key={course.id}>
-                                        <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform}/>
+                                        <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform} user={user}/>
                                     </li>
                                 );
                             })}

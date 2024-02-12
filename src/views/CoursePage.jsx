@@ -16,6 +16,7 @@ module.exports = function CoursePage({title, user, course, category, subcategory
                     <h1>Course <span style={{ color: '#28a745' }}>{course.name}</span> by <a href={`/${platform.id}`}>{platform.name}</a></h1>
                     <div>
                     <h3 className="course-description">{course.description}</h3>
+                        <button id="saveBTNPage" data-flag='save' className="btn saveBTN" type='submit' data-url={`/api/modify/save/${course.id}`}>save</button>
                 </div>
                 </div>
 

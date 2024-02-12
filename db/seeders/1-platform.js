@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Platforms.jsx', [
+    await queryInterface.bulkInsert('Platforms', [
       {
         name: 'Coursera',
         website: 'https://www.coursera.org',
@@ -178,6 +178,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Platforms.jsx', null, {});
+    await queryInterface.bulkDelete('Platforms', null, {});
   }
 };

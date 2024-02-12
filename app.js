@@ -16,9 +16,10 @@ const logoutApiRouter = require('./src/routes/api/logout');
 const addRating = require('./src/routes/api/addRating');
 const deleteApiRouter = require('./src/routes/api/delete');
 const editApiRouter = require('./src/routes/api/edit');
+const saveApiRouter = require('./src/routes/api/saveCourse')
 //api routes usage
 app.use('/api/auth', loginApiRouter, registerApiRouter,logoutApiRouter)
-app.use('/api/modify',addRating,deleteApiRouter,editApiRouter)
+app.use('/api/modify',addRating,deleteApiRouter,editApiRouter,saveApiRouter)
 
 //view routes import
 const homeViewRouter = require('./src/routes/view/home');

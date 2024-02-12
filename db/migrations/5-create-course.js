@@ -18,7 +18,7 @@ module.exports = {
       platform_id: {
         type: Sequelize.INTEGER,
         references:{
-          model:'Platforms.jsx',
+          model:'Platforms',
           key:'id',
           onDelete:'CASCADE'
         }

@@ -1,7 +1,7 @@
 const newForm = document.forms["ratingForm"];
 //const myModal = document.getElementById('myModal');
 //const myInput = document.getElementById('myInput');
-console.log('---------')
+
 newForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
     try {
@@ -12,9 +12,7 @@ newForm?.addEventListener("submit", async (e) => {
             body: JSON.stringify(formData),
         });
         const data = await response.json();
-        console.log('---------')
         if (data.text === 'OK') {
-            console.log('---------')
             const card = document.createElement('li');
             card.innerHTML = `
 <div class="comment">

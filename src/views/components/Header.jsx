@@ -12,7 +12,7 @@ module.exports = function Header({user}){
                     {user ? (
                         <>
                         <a href='/api/auth/logout'>Logout</a>
-                        <a href='#'>Cart</a>
+                        <a href='/profile'>Profile</a>
                         </>
                     ):(
                         <>

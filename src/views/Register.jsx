@@ -10,6 +10,7 @@ module.exports = function Register({title}){
                     <div className="col-sm-10">
                         <input type="text" className="form-control" id="inputEmail3" name='login' required/>
                     </div>
+
                 </div>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>

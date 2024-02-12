@@ -24,7 +24,7 @@ module.exports = function CategoryPage({title, user, category, subcategories, co
                             const color = colors[subcategories.indexOf(subcat) % colors.length];
                             return (
                                 <li key={course.id}>
-                                    <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform}/>
+                                    <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform} user={user}/>
                                 </li>
                             );
                         })}

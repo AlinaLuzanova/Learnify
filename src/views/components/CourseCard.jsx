@@ -1,10 +1,12 @@
 const React = require('react');
 
-module.exports = function CourseCard({category, subcategory, color, course, platform}){
+module.exports = function CourseCard({category, subcategory, color, course, platform, user}){
     return(
         <div className='courseComponent'>
             <div className="card" style={{ width: '18rem' }}>
-                <div style={{ backgroundColor: color }} className="card-img-top" id='coloredCard'></div>
+                <div style={{ backgroundColor: color }} className="card-img-top saveBTNContainer" id='coloredCard'>
+                    {user &&  <button data-flag='save' className="btn saveBTN" type='submit' data-url={`/api/modify/save/${course.id}`}>save</button>}
+                </div>
                 <div className="card-body">
                     <h5 className="card-title">{course.name}</h5>
                     <h6>On <a href={`/platforms/${platform.id}`}>{platform.name}</a></h6>

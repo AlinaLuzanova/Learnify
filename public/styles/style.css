@@ -117,7 +117,7 @@ h1{
     padding-bottom: 1%;
 }
 #platformCardBody{
-    height: 30vh;
+    height: 40vh;
 }
 .progressContainer{
     display: flex;
@@ -280,4 +280,20 @@ h1{
 }
 .h2PlatformPage{
     margin-bottom: 3%;
+}
+.saveBTNContainer{
+    display: flex;
+    align-items: center;
+}
+.saveBTN{
+ margin-left: 1.25rem;
+    background-color: white;
+    color: #007bff
+}
+#saveBTNPage{
+    width: 15vw;
+    border: 2px solid #007bff;
+    border-radius: 1rem;
+    margin-top:1%;
+    margin-left: 0;
 }

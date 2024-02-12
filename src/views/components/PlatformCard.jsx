@@ -10,6 +10,8 @@ module.exports = function PlatformCard({Platform}){
 
                         <a href={`/platforms/${Platform.id}`}><h5 className="card-title">{Platform.name}</h5></a>
                         <p className="card-text">{Platform.description}</p>
+                         <h6 style={{color:'#007bff'}}>Rating:</h6>
+                         {Platform.rating ? (<h5>{Platform.rating} / 100</h5>) : (<h5>No rating yet</h5>)}
                         <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100"
                              aria-valuemin="0" aria-valuemax="100">
                             <div className="progress-bar bg-danger" style={{ width: `${Platform.rating}%` }}></div>
