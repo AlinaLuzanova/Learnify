@@ -16,17 +16,24 @@ coursePageViewRouter.route('/:catId/:subcatId/:courseId')
                 const creator = await User.findByPk(com.user_id)
                 creators.push(creator)
         }
-        let flag = await UserCourse.findOne({where:{user_id:res.locals.user.id, course_id:course.id}})
-        let innerText;
-        if(flag){
-                flag='deleteDesign';
-                innerText = 'delete';
 
-        }else{
-                flag='saveDesign';
-                innerText='save'
+        if(res.locals.user){
+                let flag = await UserCourse.findOne({where:{user_id:res.locals.user.id, course_id:course.id}})
+                let style;
+                if(flag){
+                        style='deleteDesign';
+                        flag = 'delete';
+
+                }else{
+                        style='saveDesign';
+                        flag='save'
+                }
+                res.send(res.renderComponent(CoursePage, {title:course.name, user:res.locals.user,course,category,subcategory,platform,comments,creators,flag,style}))
+        } else{
+                res.send(res.renderComponent(CoursePage, {title:course.name, user:res.locals.user,course,category,subcategory,platform,comments,creators}))
         }
-        const state = innerText;
-        res.send(res.renderComponent(CoursePage, {title:course.name, user:res.locals.user,course,category,subcategory,platform,comments,creators,flag,innerText,state}))
+
+
+
 })
 module.exports = coursePageViewRouter

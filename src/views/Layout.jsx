@@ -9,6 +9,7 @@ function Layout({ title = "Home Page", children, user }) {
             <title>{title}</title>
             <script defer src="/js/auth.js"></script>
             <script defer src='/js/newFavourite.js'></script>
+            <script defer src='/js/delete.js'></script>
             <link rel="stylesheet" href="/styles/style.css" />
             <link rel="stylesheet" href="/styles/bootstrap.min.css"/>
             <link rel="stylesheet" href="/styles/font-awesome.min.css"/>

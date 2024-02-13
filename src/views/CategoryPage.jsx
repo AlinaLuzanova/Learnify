@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 const CourseCard = require('./components/CourseCard')
-module.exports = function CategoryPage({title, user, category, subcategories, courses, colors, platforms}){
+module.exports = function CategoryPage({title, user, category, subcategories, courses, colors, platforms, flags, styles}){
     return(
         <Layout title={title} user={user}>
             <div className='categoryPage'>
@@ -16,20 +16,38 @@ module.exports = function CategoryPage({title, user, category, subcategories, co
                         ))}
                     </ul>
                 </div>
-                <div className='courseList'>
+                {user&&flags&&styles? (<div className='courseList'>
                     <ul>
-                        {courses.map((course)=> {
+                        {courses.map((course,index)=> {
                             const subcat = subcategories.find(subcat => subcat.id === course.subcategory_id);
                             const platform = platforms.find(plat=>plat.id === course.platform_id)
                             const color = colors[subcategories.indexOf(subcat) % colors.length];
+                            const flag = flags[index];
+                            const style =styles[index] ;
                             return (
                                 <li key={course.id}>
-                                    <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform} user={user}/>
+                                    <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform} user={user} flag={flag} style={style}/>
                                 </li>
                             );
                         })}
                     </ul>
-                </div>
+                </div>):(
+                    <div className='courseList'>
+                        <ul>
+                            {courses.map((course)=> {
+                                const subcat = subcategories.find(subcat => subcat.id === course.subcategory_id);
+                                const platform = platforms.find(plat=>plat.id === course.platform_id)
+                                const color = colors[subcategories.indexOf(subcat) % colors.length];
+                                return (
+                                    <li key={course.id}>
+                                        <CourseCard category={category} subcategory={subcat} color={color} course={course} platform={platform} user={user}/>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                )}
+
             </div>
         </Layout>
     );

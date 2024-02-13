@@ -10,16 +10,17 @@ profileView.route('/')
         const categories = [];
         const platforms =[];
         for(const fav of favourites){
-            const course = await Course.findbyPk(fav.course_id)
+            const course = await Course.findByPk(fav.course_id)
             const subcat = await Subcategory.findByPk(course.subcategory_id);
             const cat = await Category.findByPk(subcat.category_id)
             const platform = await Platform.findByPk(course.platform_id)
-            courses.push(course).filter((item)=> (courses.indexOf(item)+1)===(courses.indexOf(item)))
-            subcategories.push(subcat).filter((item)=> (courses.indexOf(item)+1)===(courses.indexOf(item)))
-            categories.push(cat).filter((item)=> (courses.indexOf(item)+1)===(courses.indexOf(item)))
-            platforms.push(platform).filter((item)=> (courses.indexOf(item)+1)===(courses.indexOf(item)))
+            courses.push(course)
+            subcategories.push(subcat)
+            categories.push(cat)
+            platforms.push(platform)
         }
 
-        res.send(res.renderComponent(Profile,{title:`${res.locals.user}'s profile`,user:res.locals.user,favourites, categories, subcategories, colors, courses, platforms}))
+        res.send(res.renderComponent(Profile,{title:`${res.locals.user}'s profile`,user:res.locals.user,favourites, categories, subcategories, courses, platforms}))
     }
 })
+module.exports = profileView

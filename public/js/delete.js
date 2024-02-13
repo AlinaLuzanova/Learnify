@@ -1,18 +1,20 @@
-const deleteBTN = document.querySelectorAll(".deleteBTN");
+const profileContainer = document.querySelectorAll(".profileContainer");
 
-deleteBTN?.forEach((wrap) => {
-    wrap.addEventListener("click", async (event) => {
+profileContainer?.forEach((button) => {
+    button.addEventListener("click", async (event) => {
         if (event.target.nodeName === "BUTTON") {
+            const body = {flag:'delete'}
             const dataUrl = event.target.dataset.url;
             const response = await fetch(dataUrl, {
-                method: "DELETE",
+                method: "POST",
                 headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(body)
             });
 
             if(response.ok){
                 const data = await response.json();
             if (data.text === "OK") {
-              //some logic
+                event.target.parentElement.parentElement.parentElement.remove()
             }
         }
         }

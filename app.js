@@ -31,11 +31,13 @@ const subcategoryPageViewRouter = require('./src/routes/view/subcategoryPage')
 const coursePageViewRouter = require('./src/routes/view/coursePage')
 const platformViewRouter = require('./src/routes/view/platforms');
 const platformPageViewRouter = require('./src/routes/view/platformPage')
+const profileView = require('./src/routes/view/profile')
 //view routes usage
 app.use('/', homeViewRouter);
 app.use('/auth', loginViewRouter, registerViewRouter);
 app.use('/platforms', platformViewRouter,platformPageViewRouter)
 app.use('/categories', categoriesViewRouter,categoryPageViewRouter,subcategoryPageViewRouter,coursePageViewRouter)
+app.use('/profile', profileView)
 
 
 app.get("*", (req, res) => {

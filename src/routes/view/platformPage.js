@@ -1,6 +1,7 @@
 const platformPageViewRouter = require('express').Router();
 const PlatformPage = require('../../../src/views/PlatformPage');
-const {Platform, Course, Subcategory, Category,Rating} = require('../../../db/models')
+const {Platform, Course, Subcategory, Category,Rating, UserCourse} = require('../../../db/models')
+const CategoryPage = require("../../views/CategoryPage");
 platformPageViewRouter.route('/:id')
     .get(async(req,res)=>{
         const platform = await Platform.findByPk(req.params.id);
@@ -20,9 +21,27 @@ platformPageViewRouter.route('/:id')
         const ratingSum = rating.reduce((a,b)=>a+Number(b.rating),0)
         const ratingCount = rating.length;
         const ratingAvg = ratingSum/ratingCount;
-        await platform.update({rating:ratingAvg})
+        await platform.update({rating:ratingAvg});
         const colors = ['#007bff','#28a745','#dc3545','#ffc107','#17a2b8','#343a40','#ff69b4'];
-        res.send(res.renderComponent(PlatformPage,{title:'Home Page', user:res.locals.user, platform, courses, categories,  subcategories:subcats, colors}))
+
+        if(res.locals.user){
+            const flags =[];
+            const styles=[];
+
+            for(const course of courses){
+                const userCourses = await UserCourse.findOne({where:{user_id:res.locals.user.id, course_id:course.id}, raw:true});
+                if(userCourses){
+                    flags.push('delete')
+                    styles.push('deleteDesign')
+                }if(!userCourses){
+                    flags.push('save')
+                    styles.push('saveDesign')
+                }
+            }
+            res.send(res.renderComponent(PlatformPage,{title:'Home Page', user:res.locals.user, platform, courses, categories,  subcategories:subcats, colors, flags, styles}))
+        } if(!res.locals.user){
+            res.send(res.renderComponent(PlatformPage,{title:'Home Page', user:res.locals.user, platform, courses, categories,  subcategories:subcats, colors}))
+        }
     })
 
 module.exports = platformPageViewRouter

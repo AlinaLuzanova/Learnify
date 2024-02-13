@@ -1,6 +1,7 @@
 const subcategoryPageViewRouter = require('express').Router();
-const {Category, Subcategory,Course,Platform} = require('../../../db/models');
+const {Category, Subcategory,Course,Platform, UserCourse} = require('../../../db/models');
 const SubcategoryPage = require('../../views/SubcategoryPage');
+const CategoryPage = require("../../views/CategoryPage");
 
 subcategoryPageViewRouter.route('/:catId/:subcatId')
     .get(async (req, res) => {
@@ -17,7 +18,26 @@ subcategoryPageViewRouter.route('/:catId/:subcatId')
                 platformsCourse.push(...neddedPlatforms);
             }
 
-            res.send(res.renderComponent(SubcategoryPage,{ title: category.name, user: res.locals.user, category, subcategory, courses, platforms:platformsCourse }));
+
+            if(res.locals.user){
+                const flags =[];
+                const styles=[];
+
+                for(const course of courses){
+                    const userCourses = await UserCourse.findOne({where:{user_id:res.locals.user.id, course_id:course.id}, raw:true});
+                    if(userCourses){
+                        flags.push('delete')
+                        styles.push('deleteDesign')
+                    }if(!userCourses){
+                        flags.push('save')
+                        styles.push('saveDesign')
+                    }
+                }
+                res.send(res.renderComponent(SubcategoryPage,{ title: category.name, user: res.locals.user, category, subcategory, courses, platforms:platformsCourse, flags,styles }));
+            } if(!res.locals.user){
+                res.send(res.renderComponent(SubcategoryPage,{ title: category.name, user: res.locals.user, category, subcategory, courses, platforms:platformsCourse }));
+            }
+
         } catch (error) {
             res.status(500).send({ error: 'An error occurred while fetching data.' });
         }

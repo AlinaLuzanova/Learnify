@@ -15,7 +15,7 @@
 }
 .main-content {
     padding: 1% 7% 10% 7%;
-    margin-top: 8em;
+    margin-top: 10em;
 }
 
 .PlatformList {
@@ -305,3 +305,6 @@ h1{
     border: 2px solid #7c7c7c;
 }
 
+.profileContainer>*{
+    padding-left: 3%;
+}
