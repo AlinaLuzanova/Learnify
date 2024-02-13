@@ -22,7 +22,7 @@ module.exports = {
       { name: 'Backend Development', category_id: 2, createdAt: new Date(), updatedAt: new Date() },
       { name: 'Fullstack Development', category_id: 2, createdAt: new Date(), updatedAt: new Date() },
       { name: 'Mobile Development', category_id: 2, createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Data Science & Machine Learning', category_id: 2, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Data Science', category_id: 2, createdAt: new Date(), updatedAt: new Date() },
       { name: 'Game Development', category_id: 2, createdAt: new Date(), updatedAt: new Date() },
 
 

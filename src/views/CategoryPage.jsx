@@ -7,7 +7,7 @@ module.exports = function CategoryPage({title, user, category, subcategories, co
             <div className='categoryPage'>
                 <h3><a href='/categories'>All categories</a> > {category.name}</h3>
                 <h1>{category.name} courses</h1>
-                <div className='subCatPageList'>
+                <div className='subCatPageList '>
                     <ul>
                         {subcategories.map((subcat)=>(
                             <li key={subcat.id}>

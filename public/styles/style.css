@@ -70,7 +70,7 @@ h2>a{
     padding-left:  0;
     margin:  1%  0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -78,6 +78,9 @@ h2>a{
     list-style-type: none;
     flex:  0  0 calc(33.333% -  2vw);
     margin:  1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 h1{
     padding: 2% 0;
@@ -95,14 +98,19 @@ h1{
 .courseList ul {
     display: flex;
     flex-wrap: wrap;
-    gap:  3%; /* Use gap for consistent spacing between items */
+    gap:  3%;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
 
 .courseList ul li {
-    flex:  0  0 calc(33.33% -  2%); /* Each item takes up roughly one third of the container's width minus   2% for margins */
+    flex:  0  0 calc(33.33% -  2%);
     list-style-type: none;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
     margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .courseComponent>.card>.card-body>*{
     margin-bottom: 4%;
@@ -308,3 +316,4 @@ h1{
 .profileContainer>*{
     padding-left: 3%;
 }
+
