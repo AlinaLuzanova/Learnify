@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 const Comment = require('./components/Comment');
-module.exports = function CoursePage({title, user, course, category, subcategory, platform, comments, creators}) {
+module.exports = function CoursePage({title, user, course, category, subcategory, platform, comments, creators, flag, innerText, state}) {
     return (
         <Layout title={title} user={user}>
             <div className='headerLink'>
@@ -13,10 +13,10 @@ module.exports = function CoursePage({title, user, course, category, subcategory
             <div className='cardPage'>
 
                 <div className="course-info">
-                    <h1>Course <span style={{ color: '#28a745' }}>{course.name}</span> by <a href={`/${platform.id}`}>{platform.name}</a></h1>
+                    <h1>Course <span style={{ color: '#28a745' }}>{course.name}</span> by <a href={`/platforms/${platform.id}`}>{platform.name}</a></h1>
                     <div>
                     <h3 className="course-description">{course.description}</h3>
-                        <button id="saveBTNPage" data-flag='save' className="btn saveBTN" type='submit' data-url={`/api/modify/save/${course.id}`}>save</button>
+                        {user && <button id="saveBTNPage" data-flag={state} className={`btn saveBTN ${flag}`} type='submit' data-url={`/api/modify/save/${course.id}`}>{innerText}</button>}
                 </div>
                 </div>
 

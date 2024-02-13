@@ -1,5 +1,5 @@
 const coursePageViewRouter = require('express').Router();
-const {Category, Subcategory,Course,Platform,Rating,User} = require('../../../db/models');
+const {Category, Subcategory,Course,Platform,Rating,User, UserCourse} = require('../../../db/models');
 const CoursePage = require('../../views/CoursePage');
 
 coursePageViewRouter.route('/:catId/:subcatId/:courseId')
@@ -16,6 +16,17 @@ coursePageViewRouter.route('/:catId/:subcatId/:courseId')
                 const creator = await User.findByPk(com.user_id)
                 creators.push(creator)
         }
-        res.send(res.renderComponent(CoursePage, {title:course.name, user:res.locals.user,course,category,subcategory,platform,comments,creators}))
+        let flag = await UserCourse.findOne({where:{user_id:res.locals.user.id, course_id:course.id}})
+        let innerText;
+        if(flag){
+                flag='deleteDesign';
+                innerText = 'delete';
+
+        }else{
+                flag='saveDesign';
+                innerText='save'
+        }
+        const state = innerText;
+        res.send(res.renderComponent(CoursePage, {title:course.name, user:res.locals.user,course,category,subcategory,platform,comments,creators,flag,innerText,state}))
 })
 module.exports = coursePageViewRouter

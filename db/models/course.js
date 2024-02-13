@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({User, Platform, Subcategory}) {
-      Course.belongsToMany(User, {through:'UserCourse', foreignKey:'course_id'});
+      Course.belongsToMany(User, {through: 'UserCourse', foreignKey: 'course_id', otherKey: 'user_id'});
       Course.belongsTo(Platform, {foreignKey:'platform_id'});
       Course.belongsTo(Subcategory, {foreignKey:'subcategory_id'});
       Course.belongsToMany(User, {through:'Rating', foreignKey:'course_id'})

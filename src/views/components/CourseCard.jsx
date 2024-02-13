@@ -5,7 +5,7 @@ module.exports = function CourseCard({category, subcategory, color, course, plat
         <div className='courseComponent'>
             <div className="card" style={{ width: '18rem' }}>
                 <div style={{ backgroundColor: color }} className="card-img-top saveBTNContainer" id='coloredCard'>
-                    {user &&  <button data-flag='save' className="btn saveBTN" type='submit' data-url={`/api/modify/save/${course.id}`}>save</button>}
+                    {user &&  <button data-flag='save' className="btn saveBTN saveDesign" type='submit' data-url={`/api/modify/save/${course.id}`}>save</button>}
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">{course.name}</h5>

@@ -1,12 +1,8 @@
 const saveBTNs = document.querySelectorAll('.saveBTN')
-console.log('works1')
 saveBTNs.forEach((saveBTN)=>{
-    console.log('works2')
     saveBTN.addEventListener("click", async (e) => {
-        console.log('works3')
-
+        e.preventDefault();
     try {
-        console.log('works4')
         if(saveBTN.dataset.flag==='save'){
             const body = {flag:'save'}
             const response = await fetch(saveBTN.dataset.url, {
@@ -17,12 +13,12 @@ saveBTNs.forEach((saveBTN)=>{
             const data = await response.json();
 
             if (data.text === 'OK') {
-                saveBTN.style.backgroundColor = '#007bff';
-                saveBTN.style.color = 'white';
+                saveBTN.classList.add('deleteDesign')
+                saveBTN.classList.remove('saveDesign')
                 saveBTN.innerText = 'delete';
                 saveBTN.dataset.flag = 'delete'
             }
-
+return
         }if(saveBTN.dataset.flag==='delete'){
             const body = {flag:'delete'}
             const response = await fetch(saveBTN.dataset.url, {
@@ -33,11 +29,12 @@ saveBTNs.forEach((saveBTN)=>{
             const data = await response.json();
 
             if (data.text === 'OK') {
-                saveBTN.style.backgroundColor = '#white';
-                saveBTN.style.color = '#007bff';
+                saveBTN.classList.remove('deleteDesign')
+                saveBTN.classList.add('saveDesign')
                 saveBTN.innerText = 'save';
                 saveBTN.dataset.flag = 'save'
             }
+            return
 
         }
 
