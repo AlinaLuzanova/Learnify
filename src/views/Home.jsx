@@ -35,7 +35,7 @@ module.exports = function Home({ title, user }) {
 
             <div className="row">
                 <div className="col-md-4">
-                    <div className="card">
+                    <div className="card ">
                         <div className="card-body smallCard">
                             <h5 className="card-title">Learn Anywhere</h5>
                             <p className="card-text">Access your courses on any device, anytime.</p>

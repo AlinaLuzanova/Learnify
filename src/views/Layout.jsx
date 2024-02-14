@@ -10,6 +10,7 @@ function Layout({ title = "Home Page", children, user }) {
             <script defer src="/js/auth.js"></script>
             <script defer src='/js/newFavourite.js'></script>
             <script defer src='/js/delete.js'></script>
+            <script defer src='/js/search.js'></script>
             <link rel="stylesheet" href="/styles/style.css" />
             <link rel="stylesheet" href="/styles/bootstrap.min.css"/>
             <link rel="stylesheet" href="/styles/font-awesome.min.css"/>
@@ -28,7 +29,6 @@ function Layout({ title = "Home Page", children, user }) {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Error</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                         <p id='myInput'>Modal body text goes here.</p>

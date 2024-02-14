@@ -17,28 +17,31 @@ const addRating = require('./src/routes/api/addRating');
 const deleteApiRouter = require('./src/routes/api/delete');
 const editApiRouter = require('./src/routes/api/edit');
 const saveApiRouter = require('./src/routes/api/saveCourse')
+const searchAPIRouter = require('./src/routes/api/search')
 //api routes usage
 app.use('/api/auth', loginApiRouter, registerApiRouter,logoutApiRouter)
 app.use('/api/modify',addRating,deleteApiRouter,editApiRouter,saveApiRouter)
+app.use('/api/search',searchAPIRouter)
 
 //view routes import
 const homeViewRouter = require('./src/routes/view/home');
 const loginViewRouter = require('./src/routes/view/login');
 const registerViewRouter = require('./src/routes/view/register');
-const categoriesViewRouter = require('./src/routes/view/categories')
-const categoryPageViewRouter = require('./src/routes/view/categoryPage')
-const subcategoryPageViewRouter = require('./src/routes/view/subcategoryPage')
+const categoriesViewRouter = require('./src/routes/view/categories');
+const categoryPageViewRouter = require('./src/routes/view/categoryPage');
+const subcategoryPageViewRouter = require('./src/routes/view/subcategoryPage');
 const coursePageViewRouter = require('./src/routes/view/coursePage')
 const platformViewRouter = require('./src/routes/view/platforms');
-const platformPageViewRouter = require('./src/routes/view/platformPage')
+const platformPageViewRouter = require('./src/routes/view/platformPage');
 const profileView = require('./src/routes/view/profile')
+const searchViewRouter = require('./src/routes/view/search')
 //view routes usage
 app.use('/', homeViewRouter);
 app.use('/auth', loginViewRouter, registerViewRouter);
 app.use('/platforms', platformViewRouter,platformPageViewRouter)
 app.use('/categories', categoriesViewRouter,categoryPageViewRouter,subcategoryPageViewRouter,coursePageViewRouter)
 app.use('/profile', profileView)
-
+app.use('/search', searchViewRouter)
 
 app.get("*", (req, res) => {
     res.status(404).send(res.renderComponent(PageNotFound));
