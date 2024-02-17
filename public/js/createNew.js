@@ -33,6 +33,7 @@ newForm?.addEventListener("submit", async (e) => {
   `;
             const commentsContainer = document.querySelector('.commentsContainer');
             commentsContainer.firstElementChild.nextElementSibling.prepend(card);
+            newForm.reset();
         }
 
             if (data.text ==='You can\'t add comments') {
