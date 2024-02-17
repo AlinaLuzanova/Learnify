@@ -14,7 +14,7 @@ profileContainer?.forEach((button) => {
             if(response.ok){
                 const data = await response.json();
             if (data.text === "OK") {
-                event.target.parentElement.parentElement.parentElement.remove()
+                event.target.parentElement.parentElement.parentElement.parentElement.remove()
             }
         }
         }

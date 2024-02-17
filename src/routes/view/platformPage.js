@@ -22,6 +22,7 @@ platformPageViewRouter.route('/:id')
         const ratingCount = rating.length;
         const ratingAvg = ratingSum/ratingCount;
         await platform.update({rating:ratingAvg});
+        console.log(ratingAvg)
         const colors = ['#007bff','#28a745','#dc3545','#ffc107','#17a2b8','#343a40','#ff69b4'];
 
         if(res.locals.user){
