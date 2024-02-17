@@ -14,6 +14,11 @@ newForm?.addEventListener("submit", async (e) => {
         });
         const data = await response.json();
         if (data.text === 'OK') {
+            const pBar = newForm.parentElement.previousElementSibling.firstElementChild;
+            pBar.style.width = `${data.rating}%`;
+            const rateSign = newForm.parentElement.previousElementSibling.previousElementSibling;
+            const splittedRateSign = rateSign.innerText.split(' / ')[1];
+            rateSign.innerText=`${data.rating} / ${splittedRateSign}`;
             const card = document.createElement('li');
             card.innerHTML = `
 <div class="comment">

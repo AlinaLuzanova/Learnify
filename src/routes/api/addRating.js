@@ -31,7 +31,7 @@ addRating.route("/comment/:courseId").post(async (req, res) => {
 
             const creator = await User.findByPk(rating.user_id);
 
-            res.status(200).json({ text: "OK", login: creator.login, ratingId: rating.id });
+            res.status(200).json({ text: "OK", login: creator.login, ratingId: rating.id,rating:courseRateAvg });
         } else {
             res.status(400).json({ text: "You can't add comments" });
         }

@@ -20,7 +20,7 @@ profileView.route('/')
             platforms.push(platform)
         }
 
-        res.send(res.renderComponent(Profile,{title:`${res.locals.user}'s profile`,user:res.locals.user,favourites, categories, subcategories, courses, platforms}))
+        res.send(res.renderComponent(Profile,{title:`${res.locals.user.login}'s profile`,user:res.locals.user,favourites, categories, subcategories, courses, platforms}))
     }
 })
 module.exports = profileView
